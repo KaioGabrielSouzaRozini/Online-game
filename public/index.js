@@ -53,6 +53,11 @@ socket.on('add-fruit', (command) => {
     game.addFruit(command)
 }) 
 
+socket.on('remove-fruit', (command) => {
+    console.log(`Receiving ${command.type} -> ${command.fruitId}`)
+    game.removeFruit(command)
+}) 
+
 
 
 
