@@ -7,7 +7,6 @@ export const pincel = canvas.getContext("2d");
 
 const game = createGame()
 const keyboardListener = createKeyboardListener(document)
-keyboardListener.subscribe(game.movePlayer)
 
 const socket = io()
 
@@ -49,15 +48,10 @@ socket.on('move-player', (command) => {
     }
 }) 
 
-socket.on('move-player', (command) => {
-    console.log(`Receiving ${command.type} -> ${command.playerId}`)
-
-    const playerId = socket.id
-
-    if (playerId !== command.playerId) {
-        game.movePlayer(command)
-    }
-})
+socket.on('add-fruit', (command) => {
+    console.log(`Receiving ${command.type} -> ${command.fruitId}`)
+    game.addFruit(command)
+}) 
 
 
 

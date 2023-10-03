@@ -13,7 +13,6 @@ const game = createGame()
 
 game.subscribe((command) => {
     console.log(`Emitting ${command.type}`)
-    console.log("eae")
     sockets.emit(command.type, command)
 })
 
